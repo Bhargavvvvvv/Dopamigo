@@ -1,0 +1,74 @@
+{
+  "name": "dopamigo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local-first desktop companion for starting and returning to student work",
+  "author": "Dopamigo",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/main.cjs",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "electron .",
+    "typecheck": "tsc --noEmit",
+    "smoke": "npm run build && node scripts/smoke.mjs",
+    "package": "npm run build && electron-builder --mac dir --arm64",
+    "test": "tsx --test tests/*.test.ts",
+    "test:extension": "PLAYWRIGHT_BROWSERS_PATH=.local-data/browsers tsx scripts/extension-smoke.ts",
+    "test:live": "tsx scripts/live-providers.ts",
+    "test:voice": "npm run build && node scripts/voice-smoke.mjs",
+    "test:mascot": "npm run build && node scripts/mascot-smoke.mjs",
+    "smoke:dev": "node scripts/dev-smoke.mjs",
+    "test:loop": "PLAYWRIGHT_BROWSERS_PATH=.local-data/browsers node scripts/full-loop.mjs",
+    "smoke:package": "node scripts/package-smoke.mjs",
+    "smoke:google": "npm run build && node scripts/google-smoke.mjs",
+    "test:google-live": "tsx scripts/google-live.ts"
+  },
+  "build": {
+    "appId": "com.dopamigo.desktop",
+    "productName": "Dopamigo",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "target": [
+        "dir"
+      ],
+      "icon": "assets/icon.png"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "unpdf": "^1.8.1",
+    "ws": "^8.22.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.2",
+    "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.5.1",
+    "electron-builder": "26.15.3",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.63.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

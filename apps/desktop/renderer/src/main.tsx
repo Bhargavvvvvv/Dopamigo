@@ -1,0 +1,11 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
+import './return.css';
+import './nudge.css';
+import './mascot.css';
+import { FloatingCompanion } from './components/FloatingCompanion';
+import { App } from './App';
+if (location.hash === '#launcher') document.documentElement.classList.add('launcher-document');
+if (location.hash === '#nudge') document.documentElement.classList.add('companion-document');
+createRoot(document.getElementById('root')!).render(<React.StrictMode>{location.hash === '#launcher' ? <button className="floating-launcher" aria-label="Open Dopamigo" onClick={() => void window.dopamigo.showWorkspace()}>d.</button> : location.hash === '#nudge' ? <FloatingCompanion/> : <App/>}</React.StrictMode>);

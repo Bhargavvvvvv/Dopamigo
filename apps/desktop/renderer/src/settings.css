@@ -1,0 +1,33 @@
+.settings-card { min-width: 0; }
+.settings-card > h3 { margin-bottom: 16px; }
+.settings-card > p { max-width: 72ch; overflow-wrap: anywhere; }
+.settings-card > label:not(.toggle-row) { margin: 20px 0; }
+.settings-card input[type=range] { max-width: 360px; margin: 12px 0 0; }
+.settings-card .timing-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 420px; margin: 22px 0; }
+.settings-card .timing-fields label { min-width: 0; }
+.settings-card .footnote { margin: 14px 0 18px; }
+.settings-card details { margin-top: 20px; }
+.settings-card .google-setup { padding: 12px 14px; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); }
+.settings-card .google-setup summary { padding: 2px 0; }
+.settings-card .google-setup[open] summary { margin-bottom: 12px; }
+.settings-card .google-setup p { margin-bottom: 12px; }
+.settings-card .google-setup .actions { margin: 12px 0 0; }
+.settings-card .possible-assignments > summary { margin-bottom: 10px; }
+.candidate-row { overflow-wrap: anywhere; }
+.ignored-assignments { padding: 14px; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); }
+.ignored-assignments summary { margin-bottom: 10px; }
+.ignored-assignments > p { font-size: 12px; }
+.ignored-assignment { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid var(--border); }
+.ignored-assignment strong { font-size: 12px; font-weight: 500; overflow-wrap: anywhere; }
+.ignored-assignment .secondary { font-size: 11px; white-space: nowrap; }
+.settings-card .pairing-details { margin: 18px 0; padding: 16px; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); }
+.pairing-details small { display: block; }
+.pairing-details > .quiet { margin-top: 8px; }
+.pairing-actions { min-width: 0; }
+.assignment-details { min-width: 0; }
+.assignment-details :is(p, strong, span) { overflow-wrap: anywhere; }
+.assignment-meta { line-height: 1.7; }
+.assignment-details details[open] > summary { margin-bottom: 10px; }
+@media (max-width: 680px) {
+  .settings-card .timing-fields { grid-template-columns: minmax(0, 1fr); }
+}

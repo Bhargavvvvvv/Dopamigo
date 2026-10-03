@@ -1,0 +1,29 @@
+.work-page .section-heading { flex-wrap: wrap; gap: 12px 24px; margin-bottom: 17px; }
+.work-page .section-heading h2 { margin-bottom: 0; }
+.session-badge { align-self: center; color: var(--text-muted); font-size: 11px; line-height: 1.5; white-space: nowrap; }
+.session-badge.live { color: var(--ink); }
+.session-badge.live::before { content: ''; display: inline-block; width: 5px; height: 5px; margin: 0 7px 1px 0; border-radius: 50%; background: var(--ink); }
+.session-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.card-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 13px; }
+.card-heading h3 { margin: 0; font-size: 13px; font-weight: 500; }
+.card-heading small, .save-status { color: var(--text-muted); font-size: 11px; line-height: 1.6; }
+.notes-card { margin-top: 32px; padding-top: 23px; border-top: 1px solid var(--border); }
+.notes-card textarea { min-height: 190px; padding: 12px; border: 1px solid transparent; border-radius: 5px; line-height: 1.9; background: var(--paper); }
+.notes-card textarea:hover:not(:disabled) { border-color: transparent; }
+.notes-card textarea:focus { border-color: var(--focus-border); }
+.next-edit { margin-top: 21px; }
+.resources-section { margin-top: 32px; padding-top: 23px; border-top: 1px solid var(--border); }
+.resource-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 0; font-size: 13px; }
+.resource-row + .resource-row { border-top: 1px solid var(--border); }
+.resource-row > span { min-width: 0; overflow-wrap: anywhere; }
+.resource-row small { display: block; margin-top: 3px; color: var(--text-muted); font-size: 11px; }
+.resource-row .quiet { flex-shrink: 0; }
+.resource-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; align-items: end; gap: 12px; margin: 17px 0 28px; }
+.resource-form .secondary { min-height: 41px; }
+@media (max-width: 950px) {
+  .resource-form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .resource-form .secondary { grid-column: 1 / -1; justify-self: start; min-height: 32px; }
+}
+@media (max-width: 680px) {
+  .resource-form { grid-template-columns: minmax(0, 1fr); }
+}

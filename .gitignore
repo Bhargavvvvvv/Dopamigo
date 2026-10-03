@@ -1,0 +1,14 @@
+node_modules/
+dist/
+release/
+.env
+.env.*
+!.env.example
+.DS_Store
+test-results/
+.local-data/
+
+# Google app setup and encrypted account credentials
+client_secret*.json
+google-oauth*.json
+google-connection.enc*

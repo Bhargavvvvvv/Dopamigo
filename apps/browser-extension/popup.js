@@ -1,0 +1,6 @@
+const token = document.querySelector('#token'); const port = document.querySelector('#port'); const status = document.querySelector('#status'); const pin = document.querySelector('#pin');
+chrome.storage.local.get(['token', 'port']).then(saved => { token.value = saved.token || ''; port.value = saved.port || 47321; });
+async function refresh() { const state = await chrome.runtime.sendMessage({ type: 'status' }); status.textContent = state.connected ? (state.enabled ? 'Monitoring this focus session' : 'Connected · monitoring off') : 'Desktop disconnected'; pin.disabled = !state.enabled; }
+document.querySelector('#pair').addEventListener('submit', async event => { event.preventDefault(); if (!/^[A-Za-z0-9_-]{43}$/.test(token.value.trim())) { status.textContent = 'Copy the full pairing token from desktop Settings.'; return; } await chrome.storage.local.set({ token: token.value.trim(), port: Number(port.value) }); await chrome.runtime.sendMessage({ type: 'reconnect' }); await refresh(); });
+pin.addEventListener('click', async () => { const result = await chrome.runtime.sendMessage({ type: 'pin-work-tab' }); status.textContent = result.ok ? 'Work tab saved for this session' : 'Start an enabled focus session first'; });
+void refresh(); setInterval(() => void refresh(), 1500);

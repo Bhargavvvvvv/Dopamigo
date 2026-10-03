@@ -1,0 +1,36 @@
+.companion-document, .companion-document body, .companion-document #root { width: 100%; height: 100%; overflow: hidden; background: transparent; }
+.mascot-stage { display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; gap: 10px; width: 100%; height: 100%; padding: 18px; color: var(--ink); }
+.mascot-bubble { position: relative; display: flex; flex-direction: column; width: 100%; min-height: 0; flex-shrink: 1; padding: 16px; background: var(--paper); border: 1px solid #1e1e1e1a; border-radius: 16px; box-shadow: 0 5px 18px #00000012; }
+.mascot-heading, .mascot-voice, .mascot-return, .mascot-options, .mascot-error { flex-shrink: 0; }
+.mascot-bubble::after { content: ''; position: absolute; right: 66px; bottom: -7px; width: 13px; height: 13px; background: var(--paper); border-right: 1px solid #1e1e1e1a; border-bottom: 1px solid #1e1e1e1a; transform: rotate(45deg); }
+.mascot-heading { display: flex; align-items: flex-start; gap: 8px; }
+.mascot-drag-heading { display: flex; flex: 1; flex-direction: column; min-width: 0; gap: 3px; -webkit-app-region: drag; user-select: none; cursor: grab; }
+.mascot-heading strong { font-size: 12px; font-weight: 600; line-height: 1.4; }
+.mascot-context { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; line-height: 1.4; color: var(--text-secondary); }
+.mascot-icon-button { display: grid; place-items: center; width: 26px; height: 26px; margin: -5px -5px 0 0; padding: 3px; border-radius: 6px; color: var(--text-secondary); -webkit-app-region: no-drag; }
+.mascot-icon-button:hover { background: #1e1e1e0c; color: var(--ink); }
+.mascot-icon-button svg, .mascot-return svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.mascot-copy { min-height: 0; max-height: 136px; margin: 13px 0 10px; overflow-y: auto; overscroll-behavior: contain; }
+.mascot-copy .nudge-text { margin: 0; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.mascot-voice { display: flex; align-items: center; gap: 7px; min-height: 20px; margin-bottom: 12px; color: var(--text-secondary); font-size: 10px; line-height: 1.5; }
+.mascot-voice > span:not(.mascot-wave) { max-height: 45px; overflow-y: auto; overflow-wrap: anywhere; }
+.mascot-stop { flex-shrink: 0; margin-left: auto; padding: 3px 0 3px 8px; text-decoration: underline; text-underline-offset: 3px; font-size: 10px; color: var(--ink); }
+.mascot-return.primary { display: flex; justify-content: space-between; width: 100%; min-height: 35px; padding: 8px 11px; border-radius: 7px; font-size: 12px; }
+.mascot-options { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 7px; font-size: 11px; color: var(--text-secondary); }
+.mascot-options button { padding: 6px 0; }
+.mascot-options button:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.mascot-error { max-height: 36px; overflow-y: auto; margin: 8px 0 0; font-size: 11px; line-height: 1.5; }
+.mascot-drag-area { position: relative; flex-shrink: 0; width: 144px; height: 150px; margin-right: 8px; -webkit-app-region: drag; user-select: none; cursor: grab; }
+.mascot-float { position: relative; z-index: 1; width: 144px; height: 144px; animation: mascot-float 4.5s ease-in-out infinite; }
+.mascot-avatar { width: 100%; height: 100%; transform-origin: 50% 85%; transform: scale(calc(1 + var(--speech-level, 0) * .045)) rotate(calc(var(--speech-level, 0) * -2deg)); }
+.mascot-avatar img { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(0 2px 1px #0000000d); }
+.mascot-shadow { position: absolute; bottom: 0; left: 43px; width: 58px; height: 7px; border-radius: 50%; background: radial-gradient(ellipse, #1e1e1e20 0%, #1e1e1e00 70%); }
+.mascot-wave { display: flex; align-items: center; gap: 2px; height: 12px; flex-shrink: 0; }
+.mascot-wave i { width: 2px; height: 4px; border-radius: 2px; background: currentColor; animation: mascot-wave .75s ease-in-out infinite alternate; }
+.mascot-wave i:nth-child(2) { animation-delay: -.4s; height: 10px; }.mascot-wave i:nth-child(3) { animation-delay: -.2s; height: 7px; }.mascot-wave i:nth-child(4) { animation-delay: -.6s; }
+@keyframes mascot-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-5px) rotate(1deg); } }
+@keyframes mascot-wave { to { transform: scaleY(.35); } }
+.mascot-stage.reduce-motion .mascot-float, .mascot-stage.reduce-motion .mascot-wave i { animation: none; }
+.mascot-stage.reduce-motion .mascot-avatar { transform: none; }
+@media (prefers-reduced-motion: reduce) { .mascot-float, .mascot-wave i { animation: none; } .mascot-avatar { transform: none; } }
+@media (max-height: 480px) { .mascot-drag-area { width: 110px; height: 114px; }.mascot-float { width: 110px; height: 110px; }.mascot-shadow { left: 26px; }.mascot-copy { max-height: 100px; } }

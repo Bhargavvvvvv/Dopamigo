@@ -1,0 +1,10 @@
+.return-page > .lede { margin-bottom: 34px; }
+.return-card { padding: 23px 0; border-top: 1px solid var(--border); margin-bottom: 28px; }
+.return-card .return-project { font-size: 20px; line-height: 1.4; letter-spacing: -.3px; font-weight: 500; margin: 24px 0 18px; overflow-wrap: anywhere; }
+.return-step { font-size: 13px; color: var(--text-secondary); }
+.return-step > span { display: block; font-size: 12px; color: var(--ink); margin-bottom: 7px; }
+.saved-detail { margin-top: 23px; }
+.saved-detail .eyebrow { font-size: 12px; }
+.saved-detail ul { list-style: none; padding: 0; font-size: 13px; line-height: 1.9; color: var(--text-secondary); }
+.saved-notes { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; line-height: 1.8; margin: 9px 0 0; max-height: 220px; overflow: auto; }
+.resource-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
